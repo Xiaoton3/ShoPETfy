@@ -10,12 +10,14 @@ import math as m
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from funct_2 import get_by_category
 
 def display_all():
     print('display all data')
 
 if __name__ == "__main__":
     answer = ''
+    df_combine = pd.read_csv("data/clean/df_final.csv")
     while answer != 'Q' and answer != 'q':
         print('''
         Please select from this menu:
@@ -31,7 +33,19 @@ if __name__ == "__main__":
             print('anser1')
             display_all()
         elif answer == '2':
-            print('ans2')
+            print('''
+            1) Toys
+            2) Treats
+            ''')
+            answer_2 = input('    Your choice: ').strip()
+            # depending on user input, prints correspodnin info
+            if answer_2 == '1':
+                answer_2 = 'toys'
+            elif answer_2 == '2':
+                answer_2 = 'treats'
+            else: # ask again
+                print('\n    Your choice is not valid:', answer_2, '\n')
+            get_by_category(df_combine,str(answer_2))
         elif answer == '3':
             print()
             print('ans3')
