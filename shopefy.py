@@ -25,7 +25,7 @@ if __name__ == "__main__":
         1)  Given a name, display the characteristics, temperament, and other who are in the same breed group (Debbie)
         2)  Display prices and discount info for chosen category (concatenate chewy and amazon, toys and treats) (Connie)
         3)  Based on pet size (small, medium, large), give product recommendation (based on reviews?) (Tianyi)
-        4)  Display summary by category, counts, user input keyword (Halloween) as filter (Xiaoting)
+        4)  Display summary by category, counts, user input keyword (Halloween) as filter (Xiaotong)
         Q)  Quit from this program
         ''')
         answer = input('    Your choice: ').strip()
