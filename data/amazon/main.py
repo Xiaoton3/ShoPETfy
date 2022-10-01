@@ -49,7 +49,6 @@ def scrape_all(items, page_number, url_prefix, headers):
         res = requests.get(url, timeout=5,headers = headers)
         res_content = res.content
         scrape_one_page(res_content, items)
-        #print("page{0}".format(i+1))
 
 def main(items,page_num,catagory):
     url_prefix = "https://www.amazon.com/s?k="+catagory+"&i=pets&rh=n%3A2975434011&page=2&c=ts&qid=1663384591&ts_id=2975434011&ref=sr"
