@@ -10,7 +10,7 @@ import math as m
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from funct_2 import get_by_category
+from funct_2 import get_by_category, display_graph
 
 def display_all():
     print('display all data')
@@ -45,7 +45,12 @@ if __name__ == "__main__":
                 answer_2 = 'treats'
             else: # ask again
                 print('\n    Your choice is not valid:', answer_2, '\n')
-            get_by_category(df_combine,str(answer_2))
+            df_result = get_by_category(df_combine,str(answer_2))
+            # displays top 10 cheapst product, sort by price
+            print(df_result.head(10))
+            # plot cheapest product by each channel
+            display_graph(df_result)
+            print()
         elif answer == '3':
             print()
             print('ans3')
