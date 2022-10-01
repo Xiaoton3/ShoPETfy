@@ -11,6 +11,7 @@ import math as m
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from tabulate import tabulate
 from funct_1 import *
 from funct_2 import get_by_category, display_graph
 
@@ -128,7 +129,7 @@ if __name__ == "__main__":
                 print()
 
                 # displays top 10 cheapst product, sort by price
-                print(df_result.head(10))
+                print(tabulate(df_result.head(10), headers = 'keys', tablefmt='psql'))
 
                 # plot cheapest product by each channel
                 display_graph(df_result)
