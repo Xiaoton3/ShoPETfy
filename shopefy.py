@@ -3,7 +3,7 @@ Final project for 95-888 Data Focused Python
 Group 7
 
 Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
-Andrew ID: dchan3, # todo: add andrew id
+Andrew ID: dchan3, xiaoton3# todo: add andrew id
 '''
 
 # Import modules
@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 from tabulate import tabulate
 from funct_1 import *
 from funct_2 import get_by_category, display_graph
-
+from funct_4 import *
 
 ########## define options ##########
 # Welcome Banner
@@ -53,7 +53,7 @@ function_1 = {
 '2': 'Information for your dog',
 }
 
-function_1_1 = { 
+function_1_1 = {
 '1': 'Height',
 '2': 'Weight',
 '3': 'Life Span'
@@ -71,6 +71,10 @@ function_3 = {
 
 ### Function 4 Options ###
 function_4 = {
+'1': 'Halloween',
+'2': 'Christmas',
+'3': 'Easter',
+'4': 'Birthday'
 }
 
 # Function to display options
@@ -96,7 +100,7 @@ if __name__ == "__main__":
         if answer == '1':
             display_options(function_1)
             answer_1 = get_input()
-            
+
             # Function 1, Option 1
             if answer_1 == '1':
                 display_options(function_1_1)
@@ -114,7 +118,7 @@ if __name__ == "__main__":
                 Input breed: 
                 ''')
                 answer_1_2 = get_input()
-                
+
             else:
                 print('\nYour choice is not valid:', answer_1, '\n')
 
@@ -158,12 +162,22 @@ if __name__ == "__main__":
 
             if answer_4 in function_4.keys():
                 # do something
-                continue
+                df_subset = fil_keyword(df_combine,function_4[answer_4])
+                #price distribution in both categories
+                #draw(df_subset)
+                amount_cate(df_subset)
+                print("Choose the category you want:")
+                #choose a category
+                display_options(function_2)
+                answer_4_2 = get_input()
+                # display the lowest price of this category and its channel
+                lowest_cate(df_subset,function_2[answer_4_2].lower())
+                #continue
 
             else: # invalid option
                 print('\nYour choice is not valid:', answer_4, '\n')
 
-        ##### Quit #####
+
         elif answer == 'q' or answer == 'Q':
             pass # while loop will terminate
 
