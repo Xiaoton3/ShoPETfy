@@ -32,7 +32,7 @@ def display_welcome():
 
 # Main Menu
 main_menu = '''Please select from this menu:
-1)  Given a name, display the characteristics, temperament, and other who are in the same breed group (Debbie)
+1)  Get dog information (Debbie)
 2)  Display prices and discount info for chosen category (concatenate chewy and amazon, toys and treats) (Connie)
 3)  Based on pet size (small, medium, large), give product recommendation (based on reviews?) (Tianyi)
 4)  Display summary by category, counts, user input keyword (Halloween) as filter (Xiaotong)
@@ -49,14 +49,14 @@ def get_input():
 
 ### Function 1 Options ###
 function_1 = {
-'1': 'Information for all dogs',
-'2': 'Information for your dog',
+'1': 'Get information based on dog size',
+'2': 'Get information about your dog',
 }
 
 function_1_1 = {
-'1': 'Height',
-'2': 'Weight',
-'3': 'Life Span'
+'1': 'Small',
+'2': 'Medium',
+'3': 'Large'
 }
 
 ### Function 2 Options ###
@@ -103,21 +103,25 @@ if __name__ == "__main__":
 
             # Function 1, Option 1
             if answer_1 == '1':
+                print("What dog size are you looking at?")
                 display_options(function_1_1)
                 answer_1_1 = get_input()
 
                 if answer_1_1 in function_1_1.keys():
-                    pass
+                    get_stats_by_size(function_1_1)
                 else:
                     print('\nYour choice is not valid:', answer, '\n')
 
             # Function 1, Option 2
             elif answer_1 == '2':
-                print('''
-                What breed of dog do you have?
-                Input breed: 
-                ''')
-                answer_1_2 = get_input()
+                print("What breed of dog do you have?")
+                answer_1_2 = get_input().lower()
+
+                if is_valid_breed(answer_1_2):
+                    print(tabulate(get_stats_by_breed(answer_1_2), headers = 'keys', tablefmt='psql', showindex=False))
+                    print()
+                else:
+                    print("Sorry, we don't have information for that breed yet.\n")
 
             else:
                 print('\nYour choice is not valid:', answer_1, '\n')
