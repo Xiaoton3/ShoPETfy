@@ -164,7 +164,7 @@ if __name__ == "__main__":
                 # do something
                 df_subset = fil_keyword(df_combine,function_4[answer_4])
                 #price distribution in both categories
-                #draw(df_subset)
+                draw(df_subset)
                 amount_cate(df_subset)
                 print("Choose the category you want:")
                 #choose a category
