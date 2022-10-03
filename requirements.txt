@@ -78,3 +78,7 @@ vaderSentiment==3.3.2
 wasabi==0.10.1
 wcwidth==0.2.5
 yellowbrick==1.5
+tabulate
+seaborn
+wordcloud
+tabulate

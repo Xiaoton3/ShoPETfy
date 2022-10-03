@@ -3,7 +3,7 @@ Final project for 95-888 Data Focused Python
 Group 7
 
 Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
-Andrew ID: dchan3, xiaoton3# todo: add andrew id
+Andrew ID: dchan3, shiyuhe, xiaoton3 # todo: add andrew id
 '''
 
 # Import modules
@@ -177,6 +177,7 @@ if __name__ == "__main__":
                 # display the lowest price of this category and its channel
                 lowest_cate(df_subset,function_2[answer_4_2].lower())
                 #continue
+                print()
 
             else: # invalid option
                 print('\nYour choice is not valid:', answer_4, '\n')
