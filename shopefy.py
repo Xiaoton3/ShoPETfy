@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 from tabulate import tabulate
 from funct_1 import *
 from funct_2 import get_by_category, display_graph
+from funct_3 import *
 from funct_4 import *
 
 ########## define options ##########
@@ -66,7 +67,16 @@ function_2 = {
 }
 
 ### Function 3 Options ###
-function_3 = {
+function_3_1 = {
+'1': 'S',
+'2': 'M',
+'3': 'L'
+}
+
+function_3_2 = {
+'1': 'recommend by reviews',
+'2': 'recommend by price',
+'3': 'price distribution summary'
 }
 
 ### Function 4 Options ###
@@ -149,15 +159,26 @@ if __name__ == "__main__":
 
         ##### Function 3 #####
         elif answer == '3':
-            display_options(function_3)
-            answer_3 = get_input()
+            print('\nPlease choose your dog size')
+            display_options(function_3_1)
+            answer_3_size = get_input()
+            print('\nPlease choose the method')
+            display_options(function_3_2)
+            answer_3_choice = get_input()
 
-            if answer_3 in function_3.keys():
+
+            if answer_3_size in function_3_1.keys():
                 # do something
-                continue
-
+                if (answer_3_choice in function_3_2.keys() and answer_3_choice != '3'):
+                    recommand_by(get_by_size(df_combine, function_3_1[answer_3_choice]), answer_3_choice)
+                    continue
+                elif (answer_3_choice in function_3_2.keys() and answer_3_choice == '3'):
+                    summary_by_size(get_by_size(df_combine, function_3_1[answer_3_size]))
+                    continue
+                else: # invalid option
+                    print('\nYour choice is not valid:', answer_3_choice, '\n')
             else: # invalid option
-                print('\nYour choice is not valid:', answer_3, '\n')
+                print('\nYour choice is not valid:', answer_3_size, '\n')
 
         ##### Function 4 #####
         elif answer == '4':
@@ -175,7 +196,6 @@ if __name__ == "__main__":
                 display_options(function_2)
                 answer_4_2 = get_input()
                 # display the lowest price of this category and its channel
-                lowest_cate(df_subset,function_2[answer_4_2].lower())
                 #continue
                 print()
 
