@@ -13,9 +13,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 from funct_1 import *
-from funct_2 import get_by_category, display_graph
+from funct_2 import *
 from funct_3 import *
 from funct_4 import *
+from funct_5 import *
+from data.chewy.chewy_crawl import chewy_search
+import warnings
+warnings.filterwarnings('ignore')
 
 ########## define options ##########
 # Welcome Banner
@@ -37,6 +41,7 @@ main_menu = '''Please select from this menu:
 2)  Display prices and discount info for chosen category (concatenate chewy and amazon, toys and treats) (Connie)
 3)  Based on pet size (small, medium, large), give product recommendation (based on reviews?) (Tianyi)
 4)  Display summary by category, counts, user input keyword (Halloween) as filter (Xiaotong)
+5)  Search for a word on Chewy and sort by prices
 Q)  Quit from this program'''
 
 def display_main_menu():
@@ -86,6 +91,8 @@ function_4 = {
 '3': 'Easter',
 '4': 'Birthday'
 }
+
+
 
 # Function to display options
 def display_options(function):
@@ -184,9 +191,7 @@ if __name__ == "__main__":
         elif answer == '4':
             display_options(function_4)
             answer_4 = get_input()
-
             if answer_4 in function_4.keys():
-                # do something
                 df_subset = fil_keyword(df_combine,function_4[answer_4])
                 #price distribution in both categories
                 draw(df_subset)
@@ -200,10 +205,25 @@ if __name__ == "__main__":
                 lowest_cate(df_subset,function_2[answer_4_2].lower())
                 #continue
                 print()
-
             else: # invalid option
                 print('\nYour choice is not valid:', answer_4, '\n')
 
+        ##### Function 5 #####
+        elif answer == '5':
+            print('\nSearch for word on chewy: ')
+            #get user input
+            answer_5_1 = get_input()
+            print('\n\t[INFO] Searching for the term ' + answer_5_1 + '...')
+            #search for the word using web scraping
+            chewy_search(answer_5_1)
+            print('\n\t[INFO] Search result is ready')
+            #reads the searched saved data
+            chewy_search_df = pd.read_csv('data/chewy/chewy_search_term.csv')
+            #cleans the searched data 
+            results_df = clean_df(chewy_search_df)
+            print('\n\t[INFO] Display cheapst 10 products on Chewy:')
+            print(tabulate(sort_by_price(results_df), headers = 'keys', tablefmt='psql'))
+            print()
 
         elif answer == 'q' or answer == 'Q':
             pass # while loop will terminate
