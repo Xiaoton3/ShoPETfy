@@ -49,5 +49,8 @@ def lowest_cate(df, key_words):
     else:
         df_category = df_treats
     df_category.sort_values(by=['price_new'], ascending=True).reset_index()
-    print('The lowest price of this category and its channel:\n', df_category.iloc[0]['name'], 'is',
-          df_category.iloc[0]['price_new'], 'dollars in', df_category.iloc[0]['channel'])
+    if(df_category.shape[0]==0):
+        print("No Such Product")
+    else:
+        print('The lowest price of this category and its channel:\n', df_category.iloc[0]['name'], 'is',
+          df_category.iloc[0]['price_new'], 'dollars from', df_category.iloc[0]['channel'])
