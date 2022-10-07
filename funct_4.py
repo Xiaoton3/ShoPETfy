@@ -39,7 +39,7 @@ def amount_cate(df):
     toys_amount = df_toys.shape[0]
     treats_amount = df_treats.shape[0]
     print("The amount of designated products in both categories: ")
-    print('Toys:', toys_amount, '\n', 'Treats:', treats_amount)
+    print('Toys:', toys_amount, '\n' + 'Treats:', treats_amount)
 
 def lowest_cate(df, key_words):
     df_toys = df[df['category'] == 'toys']
