@@ -4,7 +4,6 @@
 # Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
 # Andrew ID: dchan3, shiyuhe, tliao2, xiaoton3
 # Purpose: main program
-# Imported By: shopetfy.py
 
 # Import modules
 import math as m
@@ -186,16 +185,16 @@ if __name__ == "__main__":
             answer_4 = get_input()
 
             if answer_4 in function_4.keys():
-                # do something
                 df_subset = fil_keyword(df_combine,function_4[answer_4])
                 #price distribution in both categories
                 draw(df_subset)
                 amount_cate(df_subset)
-                print("Choose the category you want:")
+                print("\nChoose the category you want:")
                 #choose a category
                 display_options(function_2)
                 answer_4_2 = get_input()
                 # display the lowest price of this category and its channel
+                
                 #continue
                 print()
 
