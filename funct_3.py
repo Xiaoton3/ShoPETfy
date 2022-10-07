@@ -8,6 +8,7 @@ import math as m
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from tabulate import tabulate
 from funct_2 import get_by_category, display_graph
 from wordcloud import WordCloud
 from IPython.display import display
@@ -24,8 +25,9 @@ def recommand_by(df_subset, user_reco_choice):
     #recommendation by reviews
     if user_reco_choice == '1':
         df_result = df_subset.sort_values(by=['review'], ascending = False).reset_index()
-        df_result = df_result[['brand','name','message','price_new','channel','review']]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-        display(df_result.head(10))
+        df_result = df_result[['brand','name','message','price_new','channel','review']]
+        print(tabulate(df_result.head(10), headers = 'keys', tablefmt='psql'))
+        # display(df_result.head(10))
         brand_word_cloud = WordCloud().generate(' '.join(df_result['brand'].dropna()))
         plt.imshow(brand_word_cloud)
         plt.axis("off")
@@ -34,7 +36,8 @@ def recommand_by(df_subset, user_reco_choice):
     elif user_reco_choice == '2':
         df_result = df_subset.sort_values(by=['price'], ascending = True).reset_index()
         df_result = df_result[['brand','name','message','price_new','channel','review']]
-        display(df_result.head(10))
+        # display(df_result.head(10))
+        print(tabulate(df_result.head(10), headers = 'keys', tablefmt='psql'))
         brand_word_cloud = WordCloud().generate(' '.join(df_result['brand'].dropna()))
         plt.imshow(brand_word_cloud)
         plt.axis("off")
@@ -42,7 +45,8 @@ def recommand_by(df_subset, user_reco_choice):
 def summary_by_size(df_subset):
     df_result = df_subset.sort_values(by=['review'], ascending = False).reset_index()
     #show the top 20 product in chosen size
-    display(df_result.head(20))
+    print(tabulate(df_result.head(20), headers = 'keys', tablefmt='psql'))
+    # display(df_result.head(20))
     #diaplay using plot
     most_popular_amz = df_result[df_result['channel'] == 'amazon'].head(20)   
     most_popular_chewy = df_result[df_result['channel'] == 'chewy'].head(20)
