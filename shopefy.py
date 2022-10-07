@@ -1,10 +1,10 @@
-'''
-Final project for 95-888 Data Focused Python
-Group 7
-
-Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
-Andrew ID: dchan3, shiyuhe, xiaoton3 # todo: add andrew id
-'''
+# Final project for 95-888 Data Focused Python
+# Group 7
+# File: shopetfy.py
+# Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
+# Andrew ID: dchan3, shiyuhe, tliao2, xiaoton3
+# Purpose: main program
+# Imported By: shopetfy.py
 
 # Import modules
 import math as m

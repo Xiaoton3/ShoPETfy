@@ -1,3 +1,9 @@
+# File: funct_3.py
+# Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
+# Andrew ID: dchan3, shiyuhe, tliao2, xiaoton3
+# Purpose: functions for option 3
+# Imported By: shopetfy.py
+
 import math as m
 import numpy as np
 import pandas as pd
