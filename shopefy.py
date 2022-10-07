@@ -210,19 +210,22 @@ if __name__ == "__main__":
 
         ##### Function 5 #####
         elif answer == '5':
-            print('\nSearch for word on chewy: ')
+            print('\nSearch for word on Chewy: ')
             #get user input
             answer_5_1 = get_input()
             print('\n\t[INFO] Searching for the term ' + answer_5_1 + '...')
             #search for the word using web scraping
             chewy_search(answer_5_1)
-            print('\n\t[INFO] Search result is ready')
+            print('\n\t[INFO] Search is finished')
             #reads the searched saved data
             chewy_search_df = pd.read_csv('data/chewy/chewy_search_term.csv')
-            #cleans the searched data 
-            results_df = clean_df(chewy_search_df)
-            print('\n\t[INFO] Display cheapst 10 products on Chewy:')
-            print(tabulate(sort_by_price(results_df), headers = 'keys', tablefmt='psql'))
+            if chewy_search_df.shape[0] < 1:
+                print('\n\t[INFO] Unable to find any results, refer to options 2-5 for saved scraped results')
+            else:
+                #cleans the searched data 
+                results_df = clean_df(chewy_search_df)
+                print('\n\t[INFO] Display cheapst 10 products on Chewy:')
+                print(tabulate(sort_by_price(results_df), headers = 'keys', tablefmt='psql'))
             print()
 
         elif answer == 'q' or answer == 'Q':

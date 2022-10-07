@@ -131,4 +131,5 @@ dmypy.json
 
 # ignore local test file
 ch_test.ipynb
-data/chewy_test.ipynb
+data/chewy/chewy_test.ipynb
+data/clean/data_clean.ipynb
