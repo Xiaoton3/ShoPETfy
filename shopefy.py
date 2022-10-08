@@ -172,10 +172,7 @@ if __name__ == "__main__":
             print('\nPlease choose the method')
             display_options(function_3_2)
             answer_3_choice = get_input()
-
-
             if answer_3_size in function_3_1.keys():
-                # do something
                 if (answer_3_choice in function_3_2.keys() and answer_3_choice != '3'):
                     recommand_by(get_by_size(df_combine, function_3_1[answer_3_choice]), answer_3_choice)
                     continue
