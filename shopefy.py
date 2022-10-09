@@ -38,12 +38,12 @@ def display_welcome():
 
 # Main Menu
 main_menu = '''Please select from this menu:
-1)  Get dog information
+1)  Get stats about dogs
 2)  [Historic] Display prices and discount info for chosen category
 3)  [Historic] Product recommender based on pet size (small, medium, large)
 4)  [Historic] Display product statistics by category, prices, counts based on holiday category
 5)  [Live Pull] Keyword match on Chewy and sort by prices
-Q)  Quit from this program'''
+Q)  Quit this program'''
 
 def display_main_menu():
     print(main_menu)
@@ -58,12 +58,6 @@ def get_input():
 function_1 = {
 '1': 'Get information based on dog size',
 '2': 'Get information about your dog',
-}
-
-function_1_1 = {
-'1': 'Small',
-'2': 'Medium',
-'3': 'Large'
 }
 
 ### Function 2 Options ###
@@ -121,14 +115,7 @@ if __name__ == "__main__":
 
             # Function 1, Option 1
             if answer_1 == '1':
-                print("What dog size are you looking at?")
-                display_options(function_1_1)
-                answer_1_1 = get_input()
-
-                if answer_1_1 in function_1_1.keys():
-                    get_stats_by_size(function_1_1)
-                else:
-                    print('\nYour choice is not valid:', answer, '\n')
+                get_stats_by_size()
 
             # Function 1, Option 2
             elif answer_1 == '2':
