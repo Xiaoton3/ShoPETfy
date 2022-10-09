@@ -41,7 +41,18 @@ There are 2 pet category options:
 <br>
 
 ### Function 3 - Product recommender (based on pet size)
-The purpose of this function is to
+The purpose of this function is to give customer a list of products which fits their pets size; display the wordcloud of the most popular brands, based on reviews or price; display the top 20 products' summary based on pets size.
+
+There are 3 pet size options:
+1. S
+2. M
+3. L
+
+There are 3 function options:
+1. 'recommend by reviews',
+2. 'recommend by price',
+3. 'price distribution summary'
+
 
 <br>
 

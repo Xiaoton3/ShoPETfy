@@ -13,14 +13,12 @@ from wordcloud import WordCloud
 
 df = pd.read_csv("data/clean/df_final.csv")
 
-#Get subset of products data based on users' pets size.
+''' Get the subset of data based on users' pets size'''
 def get_by_size(df, size_str):
     df_subset = df[(df['size'].str.contains(size_str))  & (df['review']>0)]
     return df_subset
 
-#Give customer a list of products which fits their pet's size.
-#Also display the wordcloud of the most popular brands.
-#Users could choose whether to be recommended by reviews or price.
+''' Get the top 10 products based on reviews or price based on users' choice'''
 def recommand_by(df_subset, user_reco_choice):
     #recommendation by reviews
     if user_reco_choice == '1':
@@ -41,7 +39,7 @@ def recommand_by(df_subset, user_reco_choice):
         plt.axis("off")
         plt.show()
 
-#Based on the size of users' pets, display all informations about the top 20 products in different channel.
+'''Based on the size of users' pets, display all informations about the top 20 products in different channel.'''
 def summary_by_size(df_subset):
     df_result = df_subset.sort_values(by=['review'], ascending = False).reset_index()
     #show the top 20 product in chosen size
