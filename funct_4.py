@@ -9,6 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 '''4)  Display summary by category, counts, user input keyword (Halloween) as filter'''
 
+#filter the dataframe with the keyword
 def fil_keyword(df, keyword):
     df_subset = df[df['name'].str.contains(keyword)]
     return df_subset
@@ -33,6 +34,7 @@ def draw(df):
     plt.show()
     print()
 
+#the amount of products in both categories
 def amount_cate(df):
     df_toys = df[df['category'] == 'toys']
     df_treats = df[df['category'] == 'treats']
@@ -41,6 +43,7 @@ def amount_cate(df):
     print("The amount of designated products in both categories: ")
     print('Toys:', toys_amount, '\n' + 'Treats:', treats_amount)
 
+#the lowest price of product
 def lowest_cate(df, key_words):
     df_toys = df[df['category'] == 'toys']
     df_treats = df[df['category'] == 'treats']
@@ -52,5 +55,5 @@ def lowest_cate(df, key_words):
     if(df_category.shape[0]==0):
         print("No Such Product")
     else:
-        print('The lowest price of this category and its channel:\n', df_category.iloc[0]['name'], 'is',
+        print('The lowest price of product in this category and its channel:\n', df_category.iloc[0]['name'], 'is',
           df_category.iloc[0]['price_new'], 'dollars from', df_category.iloc[0]['channel'])
