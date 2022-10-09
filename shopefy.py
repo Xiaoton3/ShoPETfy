@@ -189,9 +189,11 @@ if __name__ == "__main__":
             display_options(function_4)
             answer_4 = get_input()
             if answer_4 in function_4.keys():
+                #create the subdataframe which contains the keyword
                 df_subset = fil_keyword(df_combine,function_4[answer_4])
                 #price distribution in both categories
                 draw(df_subset)
+                #display the amount of products in both categories
                 amount_cate(df_subset)
                 print("Choose the category you want:")
                 #choose a category
