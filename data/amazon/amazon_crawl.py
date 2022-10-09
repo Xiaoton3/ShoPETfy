@@ -56,8 +56,8 @@ def main(items,page_num,catagory):
           "referer":"https://www.amazon.com"}
     scrape_all(items,page_num,url_prefix,headers)
 
-#scrape categories
-ctg = ["Dog+Toys","Dog+Food","Dog+Treats","Dog+Apparel+%26+Accessories", "Dog+Carriers+%26+Travel+Products","Dog+Health+Supplies"]
+#scrape treats and toys
+ctg = ["Dog+Toys","Dog+Treats"]
 for i in range(len(ctg)):
     all_page_items = []
     main(all_page_items, 100, ctg[i])
