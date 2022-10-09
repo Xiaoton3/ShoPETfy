@@ -1,3 +1,9 @@
+# File: chewy_crawl.py
+# Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
+# Andrew ID: dchan3, shiyuhe, tliao2, xiaoton3
+# Purpose: Scrape chewy.com and get product information saved in a file
+# Imported By: shopefy.py
+
 import requests
 import bs4
 import re
@@ -23,6 +29,7 @@ def find_review_number(s):
             re_count += c
     return int(re_count)
 
+'''Scrape one page of chewy data'''
 def scrape_one_page(res_content, items):
     soup = bs4.BeautifulSoup(res_content, 'html.parser')
     page_one_items = soup.find_all("div", {"class": "kib-product-card__content"})  
@@ -62,6 +69,7 @@ def scrape_all(items, page_number, url_prefix, headers):
         scrape_one_page(res_content, items)
         print("page{0}".format(i+1))
 
+'''main function to scrape data by number of pages to scrape'''
 def main(items, page_num):
     # Main part to scrape the page
     #url_prefix = "https://www.chewy.com/b/toys_c315" # change this to change category
@@ -74,6 +82,7 @@ def main(items, page_num):
 # main(all_page_items, 100)
 # pd.DataFrame(all_page_items).to_csv("chewy_dog_treats_info.csv", index=False)
 
+'''Search for a word then return one page of product'''
 def search_and_return(term):
     url = "https://www.chewy.com/s"
     headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",

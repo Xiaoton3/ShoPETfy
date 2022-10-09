@@ -1,3 +1,9 @@
+# File: data_processing.py
+# Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
+# Andrew ID: dchan3, shiyuhe, tliao2, xiaoton3
+# Purpose: Clean chewy, amazon, petsmart data, adjust formatting
+# Imported By: N/A
+
 import pandas as pd
 import numpy as np
 import os

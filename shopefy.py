@@ -38,10 +38,10 @@ def display_welcome():
 # Main Menu
 main_menu = '''Please select from this menu:
 1)  Get dog information (Debbie)
-2)  Display prices and discount info for chosen category (concatenate chewy and amazon, toys and treats) (Connie)
-3)  Based on pet size (small, medium, large), give product recommendation (based on reviews?) (Tianyi)
-4)  Display summary by category, counts, user input keyword (Halloween) as filter (Xiaotong)
-5)  Search for a word on Chewy and sort by prices
+2)  [Historic] Display prices and discount info for chosen category (concatenate chewy and amazon, toys and treats) (Connie)
+3)  [Historic] Based on pet size (small, medium, large), give product recommendation (based on reviews?) (Tianyi)
+4)  [Historic] Display summary by category, counts, user input keyword (Halloween) as filter (Xiaotong)
+5)  [Live Pull] Search for a word on Chewy and sort by prices
 Q)  Quit from this program'''
 
 def display_main_menu():

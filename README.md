@@ -32,7 +32,11 @@ Under this function, there are 2 options:
 <br>
 
 ### Function 2 - Find prices and discount info for chosen category
-The purpose of this function is to
+The purpose of this function is to display lowest product information for the chosen cateogry, it also displays a price comparison by the 3 channels (Chewy, Amazon, Petsmart).
+
+There are 2 pet category options:
+1. Pet Toys
+2. Pet Treats
 
 <br>
 
@@ -46,5 +50,5 @@ The purpose of this function is to
 
 <br>
 
-### Function 5
-The purpose of this function is to
+### Function 5 - Live pull of Chewy data
+The purpose of this function is to conduct a live pull of product information from Chewy. The user can input a search word, and this function will display the cheapest 10 products associated with the keyword.
