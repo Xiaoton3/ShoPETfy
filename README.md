@@ -57,7 +57,15 @@ There are 3 function options:
 <br>
 
 ### Function 4 - Product statistics (based on holiday category)
-The purpose of this function is to
+The purpose of this function is to help dog owners find the designated products for certain holiday or their dog's birthday! 
+The function will display the prices distribution and the amount of products in both categories for the holiday chosen, it will also offer the customer
+the lowest price and the channel to buy it.
+
+Under this function, there are 4 options:
+1. Halloween
+2. Christmas
+3. Easter
+4. Birthday
 
 <br>
 

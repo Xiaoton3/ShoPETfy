@@ -17,27 +17,32 @@ files={}
 headers = {
   'Content-Type': 'application/json'
 }
-
 response = requests.request("GET", url, headers=headers, data=payload, files=files)
 
+# json to df
 df = pd.read_json(response.text)
 df = pd.json_normalize(response.json())
+
+# replace characters
 df = df.replace(' – ',' - ', regex=True)
 df = df.replace('up','', regex=True)
 df = df.replace('NaN','', regex=True)
 
+# split columns by '-' to get min and max
 df[['lifespan_min', 'lifespan_max']] = df['life_span'].str.lower().str.strip(" years").str.split(" - ", expand=True)
 df[['imperial_weight_min', 'imperial_weight_max']] = df['weight.imperial'].str.split(" - ", expand=True)
 df[['imperial_height_min', 'imperial_height_max']] = df['height.imperial'].str.split(" - ", expand=True)
 df[['metric_weight_min', 'metric_weight_max']] = df['weight.metric'].str.split(" - ", expand=True)
 df[['metric_height_min', 'metric_height_max']] = df['height.metric'].str.split(" - ", expand=True)
 
+# replace columns with no max with their respective min value
 df.loc[df['lifespan_max'] == '', 'lifespan_max'] = df['lifespan_min']
 df.loc[df['imperial_weight_max'] == '', 'imperial_weight_max'] = df['imperial_weight_min']
 df.loc[df['imperial_height_max'] == '', 'imperial_height_max'] = df['imperial_height_min']
 df.loc[df['metric_weight_max'] == '', 'metric_weight_max'] = df['metric_weight_min']
 df.loc[df['metric_height_max'] == '', 'metric_height_max'] = df['metric_height_min']
 
+# divide range to get mid value
 # df['imperial_weight_mid'] = (df['imperial_weight_max'] + df['imperial_weight_max']) / 2
 # df['imperial_height_mid'] = (df['imperial_height_max'] + df['imperial_height_max']) / 2
 # df['metric_weight_mid'] = (df['metric_weight_max'] + df['metric_weight_max']) / 2

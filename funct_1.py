@@ -12,15 +12,17 @@ import plotly.express as px
 import plotly.graph_objs as go
 from wordcloud import WordCloud
 
-# Import data
+# import data
 pet_df = pd.read_csv('data/pet_characteristics/pet_cleaned.csv')
-# add middle
+
+# divide (min + max) to get mid value
 pet_df['imperial_weight_mid'] = (pet_df['imperial_weight_max'] + pet_df['imperial_weight_max']) / 2
 pet_df['imperial_height_mid'] = (pet_df['imperial_height_max'] + pet_df['imperial_height_max']) / 2
 pet_df['metric_weight_mid'] = (pet_df['metric_weight_max'] + pet_df['metric_weight_max']) / 2
 pet_df['metric_height_mid'] = (pet_df['metric_height_max'] + pet_df['metric_height_max']) / 2
 pet_df['life_span_mid'] = (pet_df['life_span_max'] + pet_df['life_span_max']) / 2
-# binning by weight (imperial)
+
+# binning by weight (imperial weight)
 pet_df['size'] = pd.cut(pet_df['imperial_weight_mid'], bins = [0, 23, 55, 200], labels = ['small', 'medium', 'large'] )
 
 
