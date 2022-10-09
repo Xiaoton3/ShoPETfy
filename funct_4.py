@@ -7,6 +7,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+
 '''4)  Display summary by category, counts, user input keyword (Halloween) as filter'''
 
 #filter the dataframe with the keyword

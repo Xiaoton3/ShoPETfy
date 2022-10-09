@@ -82,3 +82,4 @@ tabulate
 seaborn
 wordcloud
 tabulate
+plotly

@@ -2,8 +2,9 @@
 Final project for 95-888 Data Focused Python
 Group 7
 
+Date: 10/9/22
 Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
-Andrew ID: dchan3, shiyuhe, xiaoton3 # todo: add andrew id
+Andrew ID: dchan3, shiyuhe, tliao2, xiaoton3
 '''
 
 # Import modules
@@ -37,11 +38,11 @@ def display_welcome():
 
 # Main Menu
 main_menu = '''Please select from this menu:
-1)  Get dog information (Debbie)
-2)  [Historic] Display prices and discount info for chosen category (concatenate chewy and amazon, toys and treats) (Connie)
-3)  [Historic] Based on pet size (small, medium, large), give product recommendation (based on reviews?) (Tianyi)
-4)  [Historic] Display summary by category, counts, user input keyword (Halloween) as filter (Xiaotong)
-5)  [Live Pull] Search for a word on Chewy and sort by prices
+1)  Get dog information
+2)  [Historic] Display prices and discount info for chosen category
+3)  [Historic] Product recommender based on pet size (small, medium, large)
+4)  [Historic] Display product statistics by category, prices, counts based on holiday category
+5)  [Live Pull] Keyword match on Chewy and sort by prices
 Q)  Quit from this program'''
 
 def display_main_menu():
