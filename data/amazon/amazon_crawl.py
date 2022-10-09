@@ -1,3 +1,7 @@
+# File: amazon_crawl.py
+# Authors: Deborah Chan, Shiyu He, Tianyi Liao, Xiaotong Yang
+# Andrew ID: dchan3, shiyuhe, tliao2, xiaoton3
+# Purpose: Scrape amazon.com and get product information saved in a file
 import requests
 import bs4
 import re

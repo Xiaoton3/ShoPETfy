@@ -14,8 +14,8 @@ def fil_keyword(df, keyword):
     df_subset = df[df['name'].str.contains(keyword)]
     return df_subset
 
+# price distribution in both categories
 def draw(df):
-    # price distribution in both categories
     df_toys = df[df['category'] == 'toys']
     df_treats = df[df['category'] == 'treats']
     plt.hist(df_toys['price_new'],
