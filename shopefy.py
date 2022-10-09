@@ -195,6 +195,7 @@ if __name__ == "__main__":
                 draw(df_subset)
                 #display the amount of products in both categories
                 amount_cate(df_subset)
+                print()
                 print("Choose the category you want:")
                 #choose a category
                 display_options(function_2)
