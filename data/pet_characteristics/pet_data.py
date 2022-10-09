@@ -36,7 +36,7 @@ df[['metric_weight_min', 'metric_weight_max']] = df['weight.metric'].str.split("
 df[['metric_height_min', 'metric_height_max']] = df['height.metric'].str.split(" - ", expand=True)
 
 # replace columns with no max with their respective min value
-df.loc[df['lifespan_max'] == '', 'lifespan_max'] = df['lifespan_min']
+df.loc[df['life_span_max'] == '', 'life_span_max'] = df['life_span_min']
 df.loc[df['imperial_weight_max'] == '', 'imperial_weight_max'] = df['imperial_weight_min']
 df.loc[df['imperial_height_max'] == '', 'imperial_height_max'] = df['imperial_height_min']
 df.loc[df['metric_weight_max'] == '', 'metric_weight_max'] = df['metric_weight_min']
@@ -47,6 +47,7 @@ df.loc[df['metric_height_max'] == '', 'metric_height_max'] = df['metric_height_m
 # df['imperial_height_mid'] = (df['imperial_height_max'] + df['imperial_height_max']) / 2
 # df['metric_weight_mid'] = (df['metric_weight_max'] + df['metric_weight_max']) / 2
 # df['metric_height_mid'] = (df['metric_height_max'] + df['metric_height_max']) / 2
+# pet_df['life_span_mid'] = (pet_df['life_span_max'] + pet_df['life_span_max']) / 2
 
 # save raw data to json file
 # with open('pet_raw.json', 'w', encoding='utf-8') as f:
