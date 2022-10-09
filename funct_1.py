@@ -27,18 +27,22 @@ pet_df['size'] = pd.cut(pet_df['imperial_weight_mid'], bins = [0, 23, 55, 200], 
 
 
 # Functions for Option 1
-def get_stats_by_size(size):
-    size_df = pet_df[pet_df['size'] == 'small']
-    temperament_wordcloud =  WordCloud().generate(' '.join(size_df['temperament'].dropna()))
-    plt.imshow(temperament_wordcloud)
-    plt.axis("off")
+def get_stats_by_size():
+    # plot 3 boxplots (for height, weight and size)
+    fig, ax = plt.subplots(nrows=1, ncols=3)
+    pet_df.boxplot(column='imperial_height_mid', by='size', ax=ax[0])
+    pet_df.boxplot(column='imperial_weight_mid', by='size', ax=ax[1])
+    pet_df.boxplot(column='life_span_mid', by='size', ax=ax[2])
+    plt.tight_layout()
     plt.show()
 
 # Functions for Option 2
 def is_valid_breed(breed):
+    # check if breed exists in data
     return pet_df['name'].str.contains(breed, case = False).any()
 
 def get_stats_by_breed(breed):
+    # get stats for breed
     out_df = pet_df[pet_df['name'].str.contains(breed, case = False)]
     out_df = out_df[['name', 'imperial_weight_mid', 'imperial_height_mid', 'life_span_mid', 'temperament']]
     out_df = out_df.rename(columns = {
