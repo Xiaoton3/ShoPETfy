@@ -16,6 +16,7 @@ df = pd.read_csv("data/clean/df_final.csv")
 ''' Get the subset of data based on users' pets size'''
 def get_by_size(df, size_str):
     df_subset = df[(df['size'].str.contains(size_str))  & (df['review']>0)]
+    df_subset = df_subset[['brand','name','message','price_new','channel','review']]
     return df_subset
 
 ''' Get the top 10 products based on reviews or price based on users' choice'''
