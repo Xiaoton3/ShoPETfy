@@ -31,8 +31,11 @@ def get_stats_by_size():
     # plot 3 boxplots (for height, weight and size)
     fig, ax = plt.subplots(nrows=1, ncols=3)
     pet_df.boxplot(column='imperial_height_mid', by='size', ax=ax[0])
+    ax[0].set_title('Height (inches)')
     pet_df.boxplot(column='imperial_weight_mid', by='size', ax=ax[1])
+    ax[1].set_title('Weight (pounds)')
     pet_df.boxplot(column='life_span_mid', by='size', ax=ax[2])
+    ax[2].set_title('Life Span (years)')
     plt.tight_layout()
     plt.show()
 

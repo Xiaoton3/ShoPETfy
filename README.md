@@ -25,7 +25,7 @@ The purpose of this function is to help dog owner find out more about their dog.
 
 Under this function, there are 2 options:
 1.  Get information based on dog size
-    - Select a dog size (S/M/L) to retrieve information about them. 
+    - Retrieve information about dogs, categorised by size. 
 2.  Get information about your dog
     - Type in a dog breed to find information about them. 
 

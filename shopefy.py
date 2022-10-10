@@ -40,7 +40,7 @@ def display_welcome():
 main_menu = '''Please select from this menu:
 1)  Get stats about dogs
 2)  [Historic] Display prices and discount info for chosen category
-3)  [Historic] Product recommender based on pet size (small, medium, large)
+3)  [Historic] Product recommender (based on pet size)
 4)  [Historic] Display product statistics by category, prices, counts based on holiday category
 5)  [Live Pull] Keyword match on Chewy and sort by prices
 Q)  Quit this program'''
